@@ -1,0 +1,475 @@
+.settings-page-top{
+    padding: 32px 16px 16px 24px;
+    color: #2E3646;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 38px;
+    letter-spacing: -0.28px;
+    background: #F8F9FA;
+    /* margin-top: 60px; */
+}
+.settings{
+    background: #F8F9FA;
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    /* height: 80vh; */
+}
+.settings-left{
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: #fff;
+    width: 286px;
+    height: 75vh;
+    border-radius: 12px;
+    
+}
+.settings-right ::-webkit-scrollbar{
+    display: none;
+}
+.set-box{
+    display: flex;
+    gap: 16px;
+    padding: 0 16px;
+    width: 254px;
+    height: 88px;
+    padding: 0px 16px;
+    align-items: center;
+    gap: 16px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+.set-active{
+    background: #F6F6F6;
+}
+.set-box:hover{
+    background: #F6F6F6;
+}
+.set-box h3{
+    color: var(--Colors-Basic-Interface-1, #04091E);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 160%; /* 22.4px */
+    letter-spacing: 0.2px;
+}
+.set-box p{
+    color: var(--Colors-Basic-Interface-2, #747681);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 160%; /* 19.2px */
+    width: 158px;
+}
+.set-box img{
+    display: flex;
+    width: 48px;
+    height: 48px;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 1000px;
+    background: var(--Greyscale-50, #FAFAFA);
+}
+
+.settings-right{
+    padding: 16px;
+    background: #fff;
+    width: 100%;
+    border-radius: 12px;
+}
+.b-content{
+    margin-left: 256px;
+}
+
+
+/* ACCOUNT SETTINGS */
+.account-setting{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-bottom: 16px;
+    height: 70vh;
+    overflow-y: auto;
+    
+}
+.account-set-top h2{
+    color: var(--Greyscale-900, #111827);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 27px */
+}
+.account-set-top p{
+    color: var(--Greyscale-600, #718096);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%; /* 22.4px */
+}
+.account-image{
+    display: flex;
+    gap: 24px;
+}
+.account-image img{
+    width: 70px;
+    height: 70px;
+}
+.account-image .img-div{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.img-div p{
+    color: var(--Greyscale-600, #718096);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%; /* 22.4px */
+}
+.account-set-btn{
+    display: flex;
+    gap: 20px;
+}
+.account-set-btn button{
+    border-radius: 6px;
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 160%; /* 22.4px */
+    letter-spacing: 0.2px;
+    padding: 8px 16px;
+    gap: 10px;
+    cursor: pointer;
+}
+.upload-btn{
+    color: #ffff;
+    background: var(--Foundation-Primary-primary-500, #0E842C);
+
+}
+.delete-btn{
+    border-radius: 4px;
+    border: 1px solid var(--Foundation-error-error-500, #E63D3D);
+    color: var(--Foundation-error-error-500, #E63D3D);
+    background: #fff;
+}
+.user-inputs{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+.user-inputs label{
+    color: var(--Greyscale-600, #718096);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 160%; /* 22.4px */
+    margin-bottom: 12px;
+}
+.user-inputs div input{
+    height: 40px;
+    padding: 16px;
+    border-radius: 4px;
+    background: var(--Greyscale-50, #FAFAFA);
+    color: var(--Greyscale-900, #111827);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 24px */
+    letter-spacing: 0.2px;
+}
+.email-label{
+    display: flex;
+    justify-content: space-between;
+}
+.email-label p{
+    color: var(--Foundation-Primary-primary-500, #0E842C);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 160%; /* 22.4px */
+    letter-spacing: 0.2px;
+}
+.user-inputs .input-div{
+    display: flex;
+    flex-direction: column; 
+    width: 48.5%;   
+}
+.address-inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.address-inputs h1{
+    color: var(--Greyscale-900, #111827);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%; /* 28px */
+}
+.save-btn{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+
+}
+.save-changes-btn{
+    border-radius: 6px;
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 160%; /* 22.4px */
+    letter-spacing: 0.2px;
+    padding: 8px 16px;
+    gap: 10px;
+    cursor: pointer;
+    color: #ffff;
+    background: var(--Foundation-Primary-primary-500, #0E842C);
+    width: 17%;
+}
+
+
+/* PASSWORD SETTING */
+.password{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.password div{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.password div p{
+    color: var(--Greyscale-600, #718096);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%; /* 22.4px */
+}
+.password div h2{
+    color: var(--Greyscale-900, #111827);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 27px */
+}
+.password-inputs label{
+    color: var(--Greyscale-600, #718096);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%; /* 22.4px */
+}
+.password-inputs div p{
+    color: var(--Greyscale-500, #A0AEC0);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 160%; /* 19.2px */
+}
+.password-inputs div{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+}
+.password-inputs div input{
+    display: flex;
+    height: 40px;
+    width: 100%;
+    padding: 16px;
+    justify-content: space-between;
+    font-size: 16px;
+    align-items: center;
+    border-radius: 4px;
+    background: var(--Greyscale-50, #FAFAFA);
+}
+.password-inputs .top-input .pass-btn{
+    position: absolute;
+    top: 56%;
+    right: 2%;
+}
+.pass-btn .i{
+    stroke: #718096;
+    font-size: 24px;
+}
+.password-inputs .bottom-input .pass-btn{
+    position: absolute;
+    top: 40%;
+    right: 2%;
+}
+.password-btn{
+    display: flex;
+    justify-content: end;
+}
+.password-button{
+    display: flex;
+    padding: 8px 16px;
+    align-items: center;
+    width: auto;
+    border-radius: 6px;
+    background: var(--Brand-Primary-primary-500, #3D4999);
+    color: var(--Others-White, var(--Background-Card-Background, #FFF));
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    margin-top: 16px;
+    cursor: pointer;
+    
+}
+
+/* NOTIFICATION SETTINGS */
+.notification-set{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.notification-set h1{
+    color: var(--Colors-Basic-Interface-1, #04091E);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 27px */
+}
+.not-set{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.not-set div{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.not-set div h2{
+    color: var(--Colors-Basic-Interface-1, #04091E);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 160%; /* 22.4px */
+}
+.not-set div p{
+    color: var(--Colors-Basic-Interface-2, #747681);
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%; /* 19.2px */
+}
+.not-set button{
+    display: flex;
+    width: 44px;
+    height: 24px;
+    padding-left: 20px;
+    justify-content: flex-end;
+    align-items: center;
+    border-radius: 1000px;
+    background: var(--Brand-Primary-primary-500, #3D4999);
+}
+.not-set button p{
+    width: 24px;
+    height: 24px;
+    border-radius: 1000px;
+    border: 2px solid var(--Brand-Primary-primary-500, #3D4999);
+    background: var(--Background-Card-Background, #FFF);
+}
+.css-p27qcy[aria-checked=true], .css-p27qcy[data-checked]{
+    --switch-bg: var(--Brand-Primary-primary-500, #3D4999) !important;
+}
+.back{
+    display: none;
+}
+
+
+
+
+@media screen and (max-width: 1290px) {
+    .b-content{
+        margin-left: 220px;
+    }
+    /* .settings-left{
+        width: auto;
+    } */
+    .user-inputs .input-div{
+        width: 48.4%;
+    }
+    .save-changes-btn{
+        width: 20%;
+    }
+
+}
+
+@media screen and (max-width: 900px) {
+    .settings-left{
+        display: flex;
+    }
+    .set-options-wrap{
+        display: flex;
+    }
+    .b-content{
+        margin-left: 0;
+    }
+}
+
+/* ================ SMALL DEVICES =============== */
+@media screen and (max-width: 600px) {
+
+    .settings{
+        flex-direction: column;
+    }
+    .settings-left, .set-right{
+        display: none;
+    }
+    .set-options{
+        display: block;
+        background-color: #ffff;
+        width: auto;
+        margin: 0 16px;
+
+    }
+    .settings-page-top{
+        display: none;
+    }
+    .set-options-wrap{
+        background: #F4F9FD;
+        height: 100%;
+    }
+    .set-box{
+        width: 100%;
+    }
+    .set-box p{
+        width: 100% !important;
+    }
+    .account-setting{
+        height: auto;
+    }
+    .user-inputs .input-div{
+        width: 100%;
+    }
+    .save-changes-btn{
+        width: 40%;
+    }
+    .account-set-btn{
+        flex-direction: column;
+        align-items: start;
+    }
+    .back{
+        display: flex;
+        gap: 8px;
+        border-radius: 4px;
+        background: var(--Others-White, #FFF);
+        padding:10px;
+        width: 108px;
+        justify-content: center;
+    }
+    .not-set{
+        gap: 15px;
+    }
+}

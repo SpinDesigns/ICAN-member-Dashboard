@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Ephesis&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=poppins:wght@300;400;500;600&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    /* outline: 0; */
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+/* ::-webkit-scrollbar{
+    display: none;
+} */
+a{
+    text-decoration: none;
+}
+.css-1ews2c8{
+    padding: 0 !important;
+}
+.not-nav{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    border-radius: 8px;
+    height: 470px;
+}
+.not-nav .top{
+    padding: 16px;
+}
+.not-nav .top h2{
+    color: var(--Neutral-Black-Black-700, #333843);
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: 30px; /* 150% */
+letter-spacing: 0.1px;
+}
+.down button, .msg button{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.down{
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+}
+.down p, .msg .np{
+    color: var(--Foundation-Info-info-500, #005180);
+font-family: Inter;
+font-size: 12px;
+font-style: normal;
+font-weight: 700;
+line-height: 20px; /* 166.667% */
+letter-spacing: 0.06px;
+text-decoration-line: underline;
+}
+.msg button{
+    margin-left: 160px;
+}
+.clk{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.clk p{
+    color: var(--Neutral-Black-Black-500, #667085);
+
+/* Text S/Medium */
+font-family: Inter;
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px; /* 150% */
+letter-spacing: 0.06px;
+}
+.hp-not h2{
+    color: var(--Neutral-Black-Black-700, #333843);
+font-family: Inter;
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: 24px; /* 200% */
+letter-spacing: 0.06px;
+}
+.hp-not p{
+    color: var(--Neutral-Black-Black-500, #667085);
+font-family: Inter;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; /* 166.667% */
+letter-spacing: 0.06px;
+}
+.mid{
+    display: flex;
+padding: var(--Medium, 4px) 16px;
+flex-direction: column;
+align-items: flex-end;
+gap: var(--Medium, 4px);
+background: var(--Secondary-Yellow-Yellow-50, #FDF1E8);
+}
+.msg{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.book-option{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+}
+.book-option button{
+    display: flex;
+    gap: 6px;
+    border: none;
+    background-color: #fff;
+    padding: 6px;
+    align-items: center;
+    width: 100%;
+    border-radius: 5px;
+}
+.book-option button p{
+    color: var(--Neutral-Foreground-2-Rest, #424242);
+font-family: "Segoe UI";
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; /* 142.857% */
+}
+.book-option button:hover{
+    background: #f5f5f5;
+}
+.trsh p:hover{
+    color: red;
+}
+
+.MuiBadge-badge {
+    background: var(--Secondary-Red-Red-500, #F04438);
+    color: white;
+}
+.calender{
+    width: 100%;
+    padding: 24px;
+    margin-top: 74px;
+}
+.css-ez23ye{
+    padding: 0 !important;
+    min-width: 0 !important;
+}
+
+.css-ez23ye{
+    background-color: transparent !important;
+}
