@@ -320,7 +320,7 @@ const Dashboard = () => {
                       </div>
                       <div className="bdown">
                         <div className="naira">
-                          <p>12 December 2023</p>
+                          <p>23 December 2023</p>
                         </div>
                         <div className="lovep">
                           <img src={active} alt="" />

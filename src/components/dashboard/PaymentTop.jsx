@@ -1,6 +1,6 @@
-import React from 'react'
-import cloud from '../images/export.svg'
-import navarrow from '../images/nav-arrow.svg'
+import React from "react";
+import cloud from "../images/export.svg";
+import navarrow from "../images/nav-arrow.svg";
 import {
   Popover,
   PopoverTrigger,
@@ -10,93 +10,67 @@ import {
   Button,
   useDisclosure,
   IconButton,
-} from '@chakra-ui/react'
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-} from '@chakra-ui/react'
+} from "@chakra-ui/react";
+import axios from "axios";
 
 const PaymentTop = () => {
+  const userInfo = localStorage.getItem("userInfo");
+  const token = localStorage.getItem("authToken")
+  const user = JSON.parse(userInfo);
 
-  const { isOpen, onOpen, onClose } = useDisclosure()
-    const userInfo = localStorage.getItem("userInfo");
-    const user = JSON.parse(userInfo);
+  const handleClick = async () => {
+    try {
+      const response = await axios.get(
+        "https://ican-abeokuta-backend.onrender.com/api/v1/payment/paymentLink/662e5ea59078fadc5e763add",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // Include Bearer token in headers
+          },
+        }
+      );
+      const paymentLink = response.data.data.data.link; // Adjust based on the actual API response structure
+      console.log(response.data.data.data);
+
+      if (paymentLink) {
+        window.open(paymentLink, "_blank");
+      } else {
+        console.error("Payment link not found");
+      }
+    } catch (error) {
+      console.error("Error fetching payment link:", error);
+    }
+  };
 
   return (
     <>
-        <div className="payment-history">
-                <div className="payment-top"> 
-                  <Popover>
-                      <PopoverTrigger>
-                        <button className='paybtn'>Payment</button>
-                      </PopoverTrigger>
-                      <PopoverContent>
-                        <PopoverArrow />
-                        <PopoverBody>
-                        <div className="drop-down-menu">
-                          <a>Make Payment <img src={navarrow} alt="" /></a>
-                          <a  onClick={onOpen}>Confirm Payment <img src={navarrow} alt="" /></a>
-                          <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>
-                            <ModalOverlay />
-                            <ModalContent>
-                              <ModalHeader><h3 className='top-mo'>ICAN Abeokuta - Membership Payment Confirmation Portal</h3></ModalHeader>
-                              <ModalCloseButton />
-                              <ModalBody className='modalBody'>
-                                <div className="confirm-payment">
-                                  <div className="confirm-form">
-                                    <h1>Payment Details</h1>
-                                    <div className="confirm-inputs">
-                                      <div className="confirm-input">
-                                        <label htmlFor="">Payment Type</label>
-                                        <input type="text" name="" id="" />
-                                      </div>
-                                      <div className="confirm-input">
-                                        <label htmlFor="">Amount Paid</label>
-                                        <input type="text" name="" id="" />
-                                      </div>
-                                      <div className="confirm-input">
-                                        <label htmlFor="">Payment method</label>
-                                        <input type="text" name="" id="" />
-                                      </div>
-                                      <div className="confirm-input">
-                                        <label htmlFor="">Transaction ID</label>
-                                        <input type="text" name="" id="" />
-                                      </div>
-                                      <div className="confirm-input">
-                                        <label htmlFor="">Date of payment</label>
-                                        <input type="text" name="" id="" />
-                                      </div>
-                                      <div className="confirm-input">
-                                        <label htmlFor="">Upload Proof of payment</label>
-                                        <input type="text" name="" id="" />
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <p className='modal-p'>By submitting this form, I confirm that the above information is accurate and the payment has been made for my ICAN Abeokuta membership.</p>
-                                  <div className="btns-confirm">
-                                    <Button className='close-paybtn' onClick={onClose}>
-                                      Cancel
-                                    </Button>
-                                    <Button variant='ghost'  >Submit</Button>
-                                  </div>
-                                </div>
-                              </ModalBody>
-                            </ModalContent>
-                          </Modal>
-                          </div>
-                        </PopoverBody>
-                      </PopoverContent>
-                    </Popover>
-                    <button><img src={cloud} alt=""/>Export</button>
+      <div className="payment-history">
+        <div className="payment-top">
+          <Popover>
+            <PopoverTrigger>
+              <button className="paybtn">Payment</button>
+            </PopoverTrigger>
+            <PopoverContent>
+              <PopoverArrow />
+              <PopoverBody>
+                <div className="drop-down-menu">
+                  <a
+                    onClick={handleClick}
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    Make Payment <img src={navarrow} alt="" />
+                  </a>
                 </div>
+              </PopoverBody>
+            </PopoverContent>
+          </Popover>
+          <button>
+            <img src={cloud} alt="" />
+            Export
+          </button>
         </div>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default PaymentTop
+export default PaymentTop;

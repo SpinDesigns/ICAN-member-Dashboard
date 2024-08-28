@@ -1,34 +1,35 @@
-import Sidebar from '../sidebar/Sidebar'
-import './settings.css'
-import search from '../images/search.svg'
-import not from '../images/set-not.svg'
-import lock from '../images/set-lock.svg'
-import setuser from '../images/set-user.svg'
-import clock from '../images/clock.svg'
-import back from '../images/back.svg'
-import check from '../images/check-nav.svg'
-import arrow from '../images/arrow-nav.svg'
-import cal from '../images/calendar.svg'
-import env from '../images/envelope.svg'
-import drop from '../images/drop-down.svg'
-import notification from '../images/notification.svg'
-import divider from '../images/divider.svg'
-import admin from '../images/user.png'
-import { Link } from 'react-router-dom'
-import Badge from '@mui/material/Badge';
+import Sidebar from "../sidebar/Sidebar";
+import "./settings.css";
+import search from "../images/search.svg";
+import not from "../images/set-not.svg";
+import lock from "../images/set-lock.svg";
+import setuser from "../images/set-user.svg";
+import clock from "../images/clock.svg";
+import back from "../images/back.svg";
+import check from "../images/check-nav.svg";
+import arrow from "../images/arrow-nav.svg";
+import cal from "../images/calendar.svg";
+import env from "../images/envelope.svg";
+import drop from "../images/drop-down.svg";
+import notification from "../images/notification.svg";
+import divider from "../images/divider.svg";
+import admin from "../images/user.png";
+import { Link } from "react-router-dom";
+import Badge from "@mui/material/Badge";
 import {
-    Button,
-    Popover,
-    PopoverArrow,
-    PopoverBody,
-    PopoverContent,
-    PopoverTrigger
-  } from '@chakra-ui/react';
-import Topbar from '../dashboard/Topbar'
-
+  Button,
+  Popover,
+  PopoverArrow,
+  PopoverBody,
+  PopoverContent,
+  PopoverTrigger,
+} from "@chakra-ui/react";
+import Topbar from "../dashboard/Topbar";
+import { UserContext } from "./../../UserContext";
+// import { toast, ToastContainer } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 
 const Settings = () => {
-
   const userInfo = localStorage.getItem("userInfo");
   const user = JSON.parse(userInfo);
 
@@ -178,74 +179,104 @@ const Settings = () => {
             Back
           </Link>
           <div className="settings-right">
-            <div className="account-setting">
+            <form className="account-setting">
               <div className="account-set-top">
                 <h2>Account Setting</h2>
                 <p>View and update your account details, profile, and more.</p>
               </div>
               <div className="account-image">
-                <img src={admin} alt="" />
+                <img
+                  src="" // Replace with your default image path
+                  alt=""
+                />
                 <div className="img-div">
                   <p>We only support .JPG, .JPEG, or .PNG file.</p>
                   <div className="account-set-btn">
-                    <button className="upload-btn">Upload your picture</button>
-                    <button className="delete-btn">Delete Image</button>
+                    <label htmlFor="pic-upload" className="delete-btn">
+                      Upload Picture
+                    </label>
+                    <input
+                      id="pic-upload"
+                      type="file"
+                    />
                   </div>
                 </div>
               </div>
               <div className="user-inputs">
                 <div className="input-div">
-                  <label for="">First Name</label>
-                  <input type="text" />
+                  <label>First Name</label>
+                  <input
+                    type="text"
+                    name="fname"
+                  />
                 </div>
                 <div className="input-div">
-                  <label for="">Last Name</label>
-                  <input type="text" />
+                  <label>Last Name</label>
+                  <input
+                    type="text"
+                    name="lname"
+                  />
                 </div>
                 <div className="input-div">
                   <div className="email-label">
-                    <label for="">Email</label>
+                    <label>Email</label>
                     <p>Change</p>
                   </div>
-                  <input type="text" />
+                  <input
+                    type="text"
+                    name="email"
+                  />
                 </div>
                 <div className="input-div">
-                  <label for="">Phone number (Optional)</label>
-                  <input type="text" />
+                  <label>Phone number (Optional)</label>
+                  <input
+                    type="text"
+                    name="phoneNumber"
+                  />
+                </div>
+                <div className="input-div">
+                  <div className="email-label">
+                    <label>DOB</label>
+                  </div>
+                  <input
+                    type="text"
+                    name="birthDay"
+                  />
+                </div>
+                <div className="input-div">
+                  <label>Secondary Phone number (Optional)</label>
+                  <input
+                    type="text"
+                    name="secondaryPhoneNumber"
+                  />
                 </div>
               </div>
               <div className="address-inputs">
                 <h1>Personal Address</h1>
                 <div>
                   <div className="user-inputs">
-                    <div className="input-div">
-                      <label for="">Country or Region</label>
-                      <input type="text" />
-                    </div>
-                    <div className="input-div">
-                      <label for="">City</label>
-                      <input type="text" />
-                    </div>
-                    <div className="input-div">
-                      <label for="">Address</label>
-                      <input type="text" />
-                    </div>
-                    <div className="input-div">
-                      <label for="">Postal Code</label>
-                      <input type="text" />
+                    <div className="input-div" style={{ width: "100%" }}>
+                      <label>Address</label>
+                      <input
+                        type="text"
+                        name="address"
+  
+                      />
                     </div>
                   </div>
                 </div>
               </div>
               <div className="save-btn">
-                <button className="save-changes-btn">Save Changes</button>
+                <button type="submit" className="save-changes-btn">
+                  Save Changes
+                </button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
-export default Settings
+export default Settings;
