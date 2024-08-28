@@ -208,7 +208,7 @@ const Topbar = () => {
                     </svg>
                     <p>Payment History</p>
                   </NavLink>
-                  <NavLink to="/message" className="links">
+                  {/* <NavLink to="/message" className="links">
                     <svg
                       width="20"
                       height="18"
@@ -222,7 +222,7 @@ const Topbar = () => {
                       />
                     </svg>
                     <p>Messages</p>
-                  </NavLink>
+                  </NavLink> */}
                   <NavLink to="/resources" className="links">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

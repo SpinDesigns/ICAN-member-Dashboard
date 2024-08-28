@@ -50,12 +50,12 @@ const Sidebar = () => {
                   </svg>
                   <p>Payment History</p>
                 </NavLink> 
-                <NavLink to='/message' className="links">
+                {/* <NavLink to='/message' className="links">
                   <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0.0550003 0.1875H0.7425H13.1175H13.805V0.875V10.5V11.1875H13.1175H7.18781L3.92219 13.7656L2.805 14.7109V13.25V11.1875H0.7425H0.0550003V10.5V0.875V0.1875ZM1.43 1.5625V9.8125H3.4925H4.18V10.5V11.7891L6.50031 9.98438L6.67219 9.8125H6.93H12.43V1.5625H1.43ZM15.18 2.9375H19.305V13.9375H16.555V17.4609L12.1722 13.9375H5.81281L7.53156 12.5625H12.6878L15.18 14.5391V12.5625H17.93V4.3125H15.18V2.9375Z" fill="#ECEDF5"/>
                   </svg>
                   <p>Messages</p>
-                </NavLink> 
+                </NavLink>  */}
                 <NavLink to='/resources' className="links">
                   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
                     <path d="M11.9167 1.83333H5.50002C5.01379 1.83333 4.54747 2.02648 4.20366 2.3703C3.85984 2.71412 3.66669 3.18043 3.66669 3.66666V18.3333C3.66669 18.8196 3.85984 19.2859 4.20366 19.6297C4.54747 19.9735 5.01379 20.1667 5.50002 20.1667H16.5C16.9863 20.1667 17.4526 19.9735 17.7964 19.6297C18.1402 19.2859 18.3334 18.8196 18.3334 18.3333V8.25L11.9167 1.83333Z" stroke="#ECEDF5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
