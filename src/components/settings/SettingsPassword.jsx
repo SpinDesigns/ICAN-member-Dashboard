@@ -27,7 +27,7 @@ import {
 import { Link } from 'react-router-dom';
 import Topbar from '../dashboard/Topbar';
 import axios from 'axios';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 
 const SettingsPassword = () => {
   const userInfo = localStorage.getItem('userInfo');
@@ -328,6 +328,7 @@ const SettingsPassword = () => {
                       "Save changes"
                     )}
                   </button>
+                  <ToastContainer />
                 </div>
               </div>
             </div>

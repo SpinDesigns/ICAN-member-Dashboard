@@ -35,7 +35,7 @@ const SettingsOption = () => {
             </div>
           </Link>
         </div>
-        <div className="settings-right set-right">
+        {/* <div className="settings-right set-right">
           <form className="account-setting">
             <div className="account-set-top">
               <h2>Account Setting</h2>
@@ -99,7 +99,7 @@ const SettingsOption = () => {
               <button className="save-changes-btn">Save Changes</button>
             </div>
           </form>
-        </div>
+        </div> */}
       </div>
     </>
   );

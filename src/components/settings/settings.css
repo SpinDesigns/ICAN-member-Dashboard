@@ -430,6 +430,9 @@
     .b-content{
         margin-left: 0;
     }
+    .user-inputs .input-div{
+        width: 100%;
+    }
 }
 
 /* ================ SMALL DEVICES =============== */

@@ -16,6 +16,7 @@ import divider from "../images/divider.svg";
 import admin from "../images/user.png";
 import { Link } from "react-router-dom";
 import Badge from "@mui/material/Badge";
+import load from "../images/load.gif";
 import {
   Button,
   Popover,
@@ -25,13 +26,100 @@ import {
   PopoverTrigger,
 } from "@chakra-ui/react";
 import Topbar from "../dashboard/Topbar";
-import { UserContext } from "./../../UserContext";
-// import { toast, ToastContainer } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+// import { UserContext } from "./../../UserContext";
+import { useState } from "react";
+// import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
 const Settings = () => {
   const userInfo = localStorage.getItem("userInfo");
   const user = JSON.parse(userInfo);
+  // const token = localStorage.getItem("token"); // Retrieve token from localStorage
+
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+
+  const [formData, setFormData] = useState({
+    photo: null,
+    fname: "",
+    lname: "",
+    email: "",
+    birthDay: "",
+    phoneNumber: "",
+    secondaryPhoneNumber: "",
+    address: "", // Added missing address field
+  });
+
+  const handleChange = (e) => {
+    const { name, value, type, files } = e.target;
+
+    if (type === "file") {
+      setFormData({ ...formData, [name]: files[0] });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
+  };
+
+  const handleSubmit = async (e) => {
+      const token = localStorage.getItem("authToken"); 
+      // console.log("Token:", token);
+    e.preventDefault();
+
+    setLoading(true);
+
+    try {
+      const response = await axios.patch(
+        "https://ican-abeokuta-backend.onrender.com/api/v1/user/updateMe",
+        formData,
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+
+      const updatedUserInfo = {
+        ...user, // Spread the existing user info
+        ...response.data.data.user, // Merge it with the updated data from the response
+      };
+
+      // Save the updated user information back to localStorage
+      localStorage.setItem("userInfo", JSON.stringify(updatedUserInfo));
+
+
+      toast.success("Profile updated successfully!");
+      console.log("Profile updated successfully!:", response.data);
+      setFormData({
+        photo: null,
+        fname: "",
+        lname: "",
+        email: "",
+        birthDay: "",
+        phoneNumber: "",
+        secondaryPhoneNumber: "",
+        address: "",
+      });
+      setErrors({});
+    } catch (error) {
+      if (error.response && error.response.status === 401) {
+        setErrors({ profile: "Error updating profile" });
+        console.log(error.response);
+      } else if (
+        error.response &&
+        error.response.data &&
+        error.response.data.message
+      ) {
+        setErrors({ profile: error.response.data.message });
+        console.log(error.response)
+      } else {
+        toast.error("There was an error updating the profile.");
+        console.error(
+          "There was an error updating the profile:",
+          error.response ? error.response.data : error.message
+        );
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div>
@@ -58,72 +146,7 @@ const Settings = () => {
                 <PopoverArrow />
                 <PopoverBody>
                   <div className="not-nav">
-                    <div className="top">
-                      <h2>Notification</h2>
-                    </div>
-                    <div className="mid">
-                      <div className="msg">
-                        <div className="clk">
-                          <img src={clock} alt="" />
-                          <p>1 min ago</p>
-                        </div>
-                        <div className="hp-not">
-                          <h2>New Bookings #308534</h2>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit........
-                          </p>
-                        </div>
-                        <button className="mr">
-                          <img src={check} alt="" />
-                          <p className="np">Mark as Read</p>
-                        </button>
-                      </div>
-                      <div className="msg">
-                        <div className="clk">
-                          <img src={clock} alt="" />
-                          <p>1 min ago</p>
-                        </div>
-                        <div className="hp-not">
-                          <h2>New Bookings #308534</h2>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit........
-                          </p>
-                        </div>
-                        <button className="mr">
-                          <img src={check} alt="" />
-                          <p className="np">Mark as Read</p>
-                        </button>
-                      </div>
-                      <div className="msg">
-                        <div className="clk">
-                          <img src={clock} alt="" />
-                          <p>1 min ago</p>
-                        </div>
-                        <div className="hp-not">
-                          <h2>New Bookings #308534</h2>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit........
-                          </p>
-                        </div>
-                        <button className="mr">
-                          <img src={check} alt="" />
-                          <p className="np">Mark as Read</p>
-                        </button>
-                      </div>
-                    </div>
-                    <div className="down">
-                      <button className="mr">
-                        <img src={check} alt="" />
-                        <p>Mark All as Read</p>
-                      </button>
-                      <button>
-                        <p>See More</p>
-                        <img src={arrow} alt="" />
-                      </button>
-                    </div>
+                    {/* Notification content here */}
                   </div>
                 </PopoverBody>
               </PopoverContent>
@@ -132,7 +155,7 @@ const Settings = () => {
             <img src={divider} alt="" />
 
             <div className="mem-deets">
-              <img className="mem" src="" alt="" />
+              <img className="mem" src={user.photo || admin} alt="" />
               <div className="name-post">
                 <div>
                   <h4>
@@ -142,7 +165,6 @@ const Settings = () => {
                 </div>
               </div>
             </div>
-            <img src={user.photo} alt="" />
           </div>
         </div>
 
@@ -150,7 +172,6 @@ const Settings = () => {
 
         <div className="settings">
           <div className="settings-left">
-            <></>
             <Link to="/settings" className="set-box set-active">
               <img src={setuser} alt="" />
               <div>
@@ -179,14 +200,14 @@ const Settings = () => {
             Back
           </Link>
           <div className="settings-right">
-            <form className="account-setting">
+            <form className="account-setting" onSubmit={handleSubmit}>
               <div className="account-set-top">
                 <h2>Account Setting</h2>
                 <p>View and update your account details, profile, and more.</p>
               </div>
               <div className="account-image">
                 <img
-                  src="" // Replace with your default image path
+                  src={user.photo || admin} // Use the user's photo or a default image
                   alt=""
                 />
                 <div className="img-div">
@@ -198,6 +219,8 @@ const Settings = () => {
                     <input
                       id="pic-upload"
                       type="file"
+                      name="photo"
+                      onChange={handleChange}
                     />
                   </div>
                 </div>
@@ -208,6 +231,8 @@ const Settings = () => {
                   <input
                     type="text"
                     name="fname"
+                    onChange={handleChange}
+                    value={formData.fname}
                   />
                 </div>
                 <div className="input-div">
@@ -215,6 +240,8 @@ const Settings = () => {
                   <input
                     type="text"
                     name="lname"
+                    onChange={handleChange}
+                    value={formData.lname}
                   />
                 </div>
                 <div className="input-div">
@@ -225,6 +252,8 @@ const Settings = () => {
                   <input
                     type="text"
                     name="email"
+                    onChange={handleChange}
+                    value={formData.email}
                   />
                 </div>
                 <div className="input-div">
@@ -232,15 +261,19 @@ const Settings = () => {
                   <input
                     type="text"
                     name="phoneNumber"
+                    onChange={handleChange}
+                    value={formData.phoneNumber}
                   />
                 </div>
                 <div className="input-div">
                   <div className="email-label">
-                    <label>DOB</label>
+                    <label>DOB(mm-dd-yyyy)</label>
                   </div>
                   <input
                     type="text"
                     name="birthDay"
+                    onChange={handleChange}
+                    value={formData.birthDay}
                   />
                 </div>
                 <div className="input-div">
@@ -248,6 +281,8 @@ const Settings = () => {
                   <input
                     type="text"
                     name="secondaryPhoneNumber"
+                    onChange={handleChange}
+                    value={formData.secondaryPhoneNumber}
                   />
                 </div>
               </div>
@@ -260,16 +295,29 @@ const Settings = () => {
                       <input
                         type="text"
                         name="address"
-  
+                        onChange={handleChange}
+                        value={formData.address}
                       />
                     </div>
                   </div>
                 </div>
               </div>
+              {errors.profile && (
+                <span className="log-err">*{errors.profile}</span>
+              )}
               <div className="save-btn">
-                <button type="submit" className="save-changes-btn">
-                  Save Changes
+                <button
+                  type="submit"
+                  className="save-changes-btn"
+                  disabled={loading}
+                >
+                  {loading ? (
+                    <img className="subload" src={load} alt="Loading..." />
+                  ) : (
+                    "Save changes"
+                  )}
                 </button>
+                <ToastContainer />
               </div>
             </form>
           </div>

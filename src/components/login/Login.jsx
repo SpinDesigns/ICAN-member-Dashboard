@@ -146,7 +146,8 @@ const Login = () => {
             </button>
             <ToastContainer />
             <h2 className="register-link">
-              Don't have an Account? <Link to="/register">Register</Link>
+              {/* add register page link */}
+              Don't have an Account? <Link to="">Register</Link>
             </h2>
             <div className="secured">
               <img src={padlock} alt="Padlock" />
